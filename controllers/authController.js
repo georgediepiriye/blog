@@ -69,7 +69,7 @@ const login = async (req, res) => {
         username: user.username,
       },
       process.env.JWT_SEC,
-      { expiresIn: "1hr" }
+      { expiresIn: "1h" }
     );
 
     const { password, ...others } = user._doc;

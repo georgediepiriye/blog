@@ -7,6 +7,7 @@ dotenv.config();
 const connectDB = require("./config/db");
 connectDB();
 const authRoutes = require("./routes/authRoutes");
+const blogRoutes = require("./routes/blogRoutes");
 
 //middlewares
 app.use(morgan("dev"));
@@ -25,11 +26,13 @@ app.use(
   cors({
     origin: "*",
     allowedHeaders: "Content-Type,Authorization",
+    credentials: true,
   })
 );
 
 //routes
 app.use("/api/v1/auth", authRoutes);
+app.use("/api/v1/blog", blogRoutes);
 
 app.listen(process.env.PORT || 3000, () => {
   console.log("Server running....");
