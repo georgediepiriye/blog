@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "test": "jest --watchAll --detectOpenHandles",
-    "start": "nodemon --delay 500ms server.js"
+    "start": "nodemon app.js"
   },
   "keywords": [],
   "author": "",
