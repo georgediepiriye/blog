@@ -4,8 +4,7 @@ const morgan = require("morgan");
 var cors = require("cors");
 const dotenv = require("dotenv");
 dotenv.config();
-const connectDB = require("./config/db");
-connectDB();
+
 const authRoutes = require("./routes/authRoutes");
 const blogRoutes = require("./routes/blogRoutes");
 
@@ -34,6 +33,17 @@ app.use(
 app.use("/api/v1/auth", authRoutes);
 app.use("/api/v1/blog", blogRoutes);
 
-app.listen(process.env.PORT || 3000, () => {
-  console.log("Server running....");
-});
+// home route
+app.get('/', (req, res) => {
+  return res.status(200).json({ status: true })
+})
+
+//unavailable routes
+app.use('*', (req, res) => {
+  return res.status(404).json({ message: 'route not found' })
+})
+
+
+
+
+module.exports = app;
