@@ -198,17 +198,19 @@ const getUserBlogs = async (req, res) => {
   const { query } = req;
 
   const { per_page = 20 } = query;
-  const state = req.query.page || "draft";
-  const page = req.query.page || 0;
+  const state = query.state || "published";
+  const page = query.page || 0;
 
   const author = req.user.id;
   try {
+    console.log(state)
     const blogs = await Blog.find({
       author: author,
       state: state,
     })
       .skip(page * per_page)
       .limit(per_page);
+      
     if (blogs.length > 0) {
       return res.status(200).json({ status: true, blogs });
     } else {
