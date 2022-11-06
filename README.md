@@ -346,7 +346,7 @@ Success
 - Header
     - Authorization: Bearer {token}
 
-```
+
 
 - Responses
 
