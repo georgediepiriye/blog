@@ -1,5 +1,5 @@
 # Blog App
-This is an api for a blog app
+This is an api for a blog app for AltSchool Second Semester Exams
 
 ---
 
