@@ -40,7 +40,7 @@ await User.deleteMany({});
         expect(response.body.user).toHaveProperty('last_name', 'peter')
         expect(response.body.user).toHaveProperty('username', 'john')
 
-    })
+    },100000)
 
     it("Should login a user",async()=>{
         //create user in database
@@ -64,7 +64,7 @@ await User.deleteMany({});
 
         expect(response.status).toBe(200)
         expect(response.body).toHaveProperty('accessToken')
-    })
+    },100000)
 
  
   
